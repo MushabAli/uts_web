@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio - Mush'ab Ali Maulana (Persona 2 Theme)</title>
+    <!-- Google Fonts untuk nuansa retro & stylish -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./assets/style.css">
+  </head>
+  <body>
+    <!-- Efek Scanline & Vignette ala UI Game -->
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+
+    <main class="portfolio-container">
+      <header class="header-section">
+        <h2 class="glitch" data-text="Mush'ab Ali Maulana">Mush'ab Ali Maulana</h2>
+        <div class="subtitle-badge">
+          <i><strong>IT (Ilmu Teknik) Expert</strong></i>
+        </div>
+      </header>
+      
+      <hr class="persona-hr">
+      
+      <div class="kontainer-animasi">
+        <div class="img-frame">
+          <img src="assets/metis.jpg" alt="Portofolio" class="metis">
+          <div class="frame-corner top-left"></div>
+          <div class="frame-corner bottom-right"></div>
+        </div>
+      </div>
+      
+      <section class="content-section">
+        <h3>Tentang Saya</h3>
+        <p class="bio-text">Manusia dari abad 21, hidup, bernafas, gender pria, hobi ngegame, gamble gacha, tidur</p>
+      </section>
+
+      <section class="content-section">
+        <h3>Pendidikan Terakhir</h3>
+        <div class="table-container">
+          <table class="persona-table">
+            <thead>
+              <tr>
+                <th>Tahun</th>
+                <th>Lokasi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>20xx</td>
+                <td>Somewhere on earth</td>
+              </tr>
+              <tr>
+                <td>20xx</td>
+                <td>SagaraS High School</td>
+              </tr>
+              <tr>
+                <td>2026</td>
+                <td>Tokyo University</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section Skill / Pie Chart -->
+      <section class="content-section">
+        <h3>Skill & Keahlian Utama</h3>
+        <div class="chart-container">
+          <canvas id="personaChart"></canvas>
+        </div>
+      </section>
+    </main>
+
+    <!-- Script Animasi & Chart Interaktif -->
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
