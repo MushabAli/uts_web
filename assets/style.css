@@ -1,0 +1,396 @@
+/* Styling Utama Tema Persona 2 (Red/Black Retro Aesthetic) */
+:root {
+  --p2-red: #d50000;
+  --p2-dark-red: #8b0000;
+  --p2-black: #0d0d0d;
+  --p2-dark-gray: #1a1a1a;
+  --p2-white: #f5f5f5;
+  --p2-yellow: #ffcc00;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--p2-black);
+  color: var(--p2-white);
+  font-family: 'Rajdhani', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Efek Layar CRT / Scanlines ala Game Klasik */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9);
+  z-index: 998;
+  pointer-events: none;
+}
+
+/* Kontainer Utama Default (Mobile Layout) */
+.portfolio-container {
+  background-color: var(--p2-dark-gray);
+  border: 4px solid var(--p2-red);
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 8px 8px 0px var(--p2-red);
+  animation: containerAppear 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes containerAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Header & Judul */
+.header-section h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 2.3rem;
+  letter-spacing: 2px;
+  color: var(--p2-white);
+  text-transform: uppercase;
+  text-shadow: 3px 3px 0px var(--p2-red);
+  min-height: 2.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.subtitle-badge {
+  display: inline-block;
+  background-color: var(--p2-red);
+  color: var(--p2-white);
+  padding: 3px 10px;
+  margin-top: 5px;
+  font-size: 1rem;
+  transform: skewX(-10deg);
+  box-shadow: 3px 3px 0px var(--p2-dark-red);
+}
+
+.persona-hr {
+  border: none;
+  height: 4px;
+  background: var(--p2-red);
+  margin: 15px 0;
+  box-shadow: 2px 2px 0px var(--p2-dark-red);
+}
+
+/* Foto Profil & Bingkai + Animasi Fade-In & Hover Smooth */
+.kontainer-animasi {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+  perspective: 1000px;
+}
+
+.img-frame {
+  position: relative;
+  padding: 5px;
+  background: var(--p2-red);
+  box-shadow: 4px 4px 0px var(--p2-yellow);
+  transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.img-frame.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s ease-in forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.metis {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+  filter: contrast(110%) saturate(90%);
+  animation: idleGlitch 4s infinite;
+  pointer-events: none;
+}
+
+/* Keyframes Animasi Idle Glitch pada PP */
+@keyframes idleGlitch {
+  0%, 100% {
+    transform: translate(0, 0);
+    filter: contrast(110%) saturate(90%);
+  }
+  92% {
+    transform: translate(0, 0);
+    filter: contrast(110%) saturate(90%);
+  }
+  93% {
+    transform: translate(-3px, 2px);
+    filter: contrast(180%) hue-rotate(90deg);
+  }
+  94% {
+    transform: translate(3px, -1px);
+    filter: contrast(150%) hue-rotate(-90deg);
+  }
+  95% {
+    transform: translate(-2px, -2px);
+    filter: contrast(200%) saturate(200%);
+  }
+  96% {
+    transform: translate(0, 0);
+    filter: contrast(110%) saturate(90%);
+  }
+}
+
+.frame-corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--p2-yellow);
+  pointer-events: none;
+}
+
+.frame-corner.top-left {
+  top: -4px;
+  left: -4px;
+}
+
+.frame-corner.bottom-right {
+  bottom: -4px;
+  right: -4px;
+}
+
+/* Section & Teks */
+.content-section {
+  margin-top: 15px;
+}
+
+.content-section h3 {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  color: var(--p2-yellow);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  border-left: 5px solid var(--p2-red);
+  padding-left: 8px;
+  min-height: 1.5rem;
+}
+
+/* Animasi Kursor Mengetik */
+.typing-target::after {
+  content: '|';
+  color: var(--p2-yellow);
+  animation: blink 0.7s infinite;
+  margin-left: 2px;
+}
+
+.typing-target.typing-done::after {
+  display: none;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Textbox "Tentang Saya" (Tersembunyi & Menunggu Pemicu JS) */
+.bio-text {
+  font-size: 1rem;
+  line-height: 1.4;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-left: 3px solid var(--p2-white);
+  opacity: 0;
+  transform: translateX(-80px);
+}
+
+/* Dipicu JS setelah judul "Tentang Saya" selesai diketik */
+.bio-text.start-swipe {
+  animation: swipeInSlow 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes swipeInSlow {
+  0% {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Styling Tabel Ala Menu Game */
+.table-container {
+  margin-top: 5px;
+  overflow-x: auto;
+}
+
+.persona-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background-color: #111;
+  border: 2px solid var(--p2-red);
+}
+
+.persona-table th, 
+.persona-table td {
+  padding: 8px 12px;
+  border: 1px solid #333;
+  font-size: 0.95rem;
+}
+
+.persona-table th {
+  background-color: var(--p2-red);
+  color: var(--p2-white);
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 1px;
+}
+
+.persona-table tr {
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.persona-table tr:hover {
+  background-color: rgba(213, 0, 0, 0.2);
+  transform: translateX(4px);
+}
+
+/* Styling Chart Container */
+.chart-container {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--p2-red);
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  box-shadow: 4px 4px 0px rgba(213, 0, 0, 0.5);
+}
+
+
+/* ==========================================
+   MEDIA QUERY KHUSUS PC (FULLSCREEN LAYOUT)
+   ========================================== */
+@media (min-width: 900px) {
+  body {
+    overflow: hidden; /* Tanpa scroll di PC */
+    padding: 0;
+  }
+
+  .portfolio-container {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    padding: 40px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+    border-width: 8px;
+    box-shadow: none;
+  }
+
+  .left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px 0;
+  }
+
+  .header-section h2 {
+    font-size: 3.5rem;
+    min-height: 3.5rem;
+  }
+
+  .subtitle-badge {
+    font-size: 1.2rem;
+  }
+
+  .metis {
+    width: 180px;
+    height: 180px;
+  }
+
+  .content-section h3 {
+    font-size: 1.8rem;
+    min-height: 2.2rem;
+  }
+
+  .bio-text {
+    font-size: 1.15rem;
+    padding: 15px;
+  }
+
+  .persona-table th, 
+  .persona-table td {
+    padding: 12px 18px;
+    font-size: 1.1rem;
+  }
+
+  .skill-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chart-container {
+    height: 320px;
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  canvas#personaChart {
+    max-height: 280px !important;
+  }
+}
